@@ -21,9 +21,9 @@ The 3D reconstruction code is place in the _scripts_ directory and is organised 
 This Matlab code is used to initialize the linear reconstruction via stack of blockface photographs. Some of the manual work has already been done. This folder contains a README file with more instructions about the data used and the processing steps.
 Main scripts:
 
-1.- _RegisterCutfaceToBlockfaceAllRegions.m_: registers the face of each block to the top/bottom blockface photo stack.
-2.- _InitializeWithCutPhotos*.m_: independent scripts for each structure (cerebrum, cerebellum and brainstem) that use information from previous steps to initialize the location of each block.
-3.- _createDownsampleGapBlocks.m_: registerts LFB sections to the corresponding blockface photo to generate initial LFB blocks.
+1. _RegisterCutfaceToBlockfaceAllRegions.m_: registers the face of each block to the top/bottom blockface photo stack.
+2. _InitializeWithCutPhotos*.m_: independent scripts for each structure (cerebrum, cerebellum and brainstem) that use information from previous steps to initialize the location of each block.
+3. _createDownsampleGapBlocks.m_: registerts LFB sections to the corresponding blockface photo to generate initial LFB blocks.
 
 ### Linear reconstruction
 The goal is to slice the MRI volume so that each LFB and H&E sections have their equivalent MRI slice. For that, we run a hieararchical linear registration algorithm to accomodate each LFB block in a single ``LFB volume'' that closely matches the MRI volume. Each MRI voxel is assigned to a given block by using a distance transform to deal with ambiguities
@@ -36,7 +36,7 @@ Main scripts:
 5. _generate_slices.py_: prepare MRI, LFB and H&E sections to for non-linear reconstruction. The different operations include resampling at a given resolution (typically 0.1mm) and independent linear alignment of each histology section to their MRI counterpart.
 
 ### Non-linear reconstruction
-The remaining difference between each MRI, LFB and H&E section is non-linear. We run the ST3 algorithm presented in [2]
+The remaining difference between each MRI, LFB and H&E section is non-linear. We run the ST3 algorithm presented in [2] to compute the final deformation field for each histology section.  The inverse deformation is used to propagate freesurfer parcellations to the manual delineations of the cortex on the LFB sections. If, for whatever reason, a block is not processed through the pipeline, we compute the registration from the linear alignment to the MRI.
 
 1. _initialize_graph.py_: compute pairwise intermodal registration (MRI, LFB and H&E) and between neighbouring MRI slices.
 2. _solve_st.py_: solve the ST3 algorithm given the pairwise registrations from step 1.
