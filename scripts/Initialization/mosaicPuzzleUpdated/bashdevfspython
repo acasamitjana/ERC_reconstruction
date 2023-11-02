@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+# check for freesurfer home
+[ ! -e "$FREESURFER_HOME" ] && echo "error: freesurfer has not been properly sourced" && exit 1
+
+# check for freesurfer dev
+[ ! -e "$FS_PYTHON_DEV" ] && echo "error: dev freesurfer has not been properly sourced" && exit 1
+
+# point to freesurfer-installed packages
+export PYTHONPATH="${FREESURFER_HOME}/python/packages:$PYTHONPATH"
+export PYTHONPATH="${FS_PYTHON_DEV}/python:$PYTHONPATH"
+
+# run python
+if [ -e "${FREESURFER_HOME}/python/bin/python3" ]; then
+    exec ${FREESURFER_HOME}/python/bin/python3 "$@"
+else
+    echo "error: fspython has not been configured correctly - \$FREESURFER_HOME/python/bin/python3 does not exist"
+    exit 1
+fi

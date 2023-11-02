@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+[ ! -e "$FREESURFER_HOME" ] && echo "error: freesurfer has not been properly sourced" && exit 1
+[ ! -e "$FS_PYTHON_DEV" ] && echo "error: dev freesurfer has not been properly sourced" && exit 1
+[ ! -e "$CODE_HOME" ] && echo "error: photovolume has not been properly sourced" && exit 1
+exec $CODE_HOME/bashdevfspython $FS_PYTHON_DEV/run_samseg "$@"
