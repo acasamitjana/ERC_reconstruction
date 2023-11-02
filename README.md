@@ -2,8 +2,11 @@
 
 This repository contains the scripts for 3D histology reconstruction.
 
-<p align="center">
-<img src="https://github.com/acasamitjana/ERC_reconstruction/blob/main/webpage/init-pic.png?raw=true" alt="drawing" width="300"/>
+
+
+<p align="left">
+<img src="https://github.com/acasamitjana/ERC_reconstruction/blob/main/webpage/gif-EX9-19.gif?raw=true" alt="drawing" width="250"/>
+<img src="https://github.com/acasamitjana/ERC_reconstruction/blob/main/webpage/LOCATION-FIG.jpg?raw=true" alt="drawing" width="634"/>
 </p>
 
 ## Data
