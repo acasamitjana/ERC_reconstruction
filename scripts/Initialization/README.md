@@ -1,4 +1,4 @@
-# BlueBrain Pre-processing pipeline
+# NextBrain Pre-processing pipeline
 
 
 ## Dissection images
