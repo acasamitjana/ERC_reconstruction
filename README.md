@@ -1,4 +1,4 @@
-# Blue BRAIN reconstruction pipeline
+# NextBrain reconstruction pipeline
 
 This repository contains the scripts for 3D histology reconstruction.
 
